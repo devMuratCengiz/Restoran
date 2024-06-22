@@ -1,0 +1,27 @@
+﻿@model CreateReservationDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>İsim</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+    <label>Mail</label>
+    <input type="text" asp-for="Email" class="form-control" />
+    <br />
+    <label>Rezervasyon Tarihi</label>
+    <input type="text" asp-for="DateTime" class="form-control" />
+    <br />
+    <label>Kişi Sayısı</label>
+    <input type="text" asp-for="NoOfPeople" class="form-control" />
+    <br />
+    <label>Özel İster</label>
+    <input type="text" asp-for="SpecialRequest" class="form-control" />
+    <br />
+    <button class="btn btn-success">Ekle</button>
+
+
+</form>
+

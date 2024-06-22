@@ -1,0 +1,45 @@
+﻿@model List<ResultFooterDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    int count = 1;
+}
+<h2>Footer</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Hafta İçi Gün</th>
+            <th scope="col">Hafta İçi Saat</th>
+            <th scope="col">Hafta Sonu Gün</th>
+            <th scope="col">Hafta Sonu Saat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.Mail</td>
+                <td>@item.OpeningDaysInWeek</td>
+                <td>@item.OpeningHoursInWeek</td>
+                <td>@item.OpeningDaysWeekEnd</td>
+                <td>@item.OpeningHoursWeekEnd</td>
+                <td><a asp-action="Update" asp-controller="Footer" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a asp-action="Delete" asp-controller="Footer" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-danger">Sil</a></td>
+            </tr>
+            count++;
+        }
+        
+        
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Footer" asp-area="Admin" class="btn btn-info">Ekle</a>

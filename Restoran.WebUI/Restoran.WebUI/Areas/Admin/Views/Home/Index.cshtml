@@ -1,0 +1,39 @@
+﻿@model List<ResultReservationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    int count = 1;
+}
+<h2>Rezervasyonlar</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Kişi Sayısı</th>
+            <th scope="col">Rezervasyon Tarihi</th>
+            <th scope="col">Özel İstek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Name</td>
+                <td>@item.NoOfPeople</td>
+                <td>@item.DateTime</td>
+                <td>@item.SpecialRequest</td>
+                <td><a asp-action="Update" asp-controller="Home" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a asp-action="Delete" asp-controller="Home" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-danger">Sil</a></td>
+            </tr>
+            count++;
+        }
+        
+        
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Home" asp-area="Admin" class="btn btn-info">Ekle</a>

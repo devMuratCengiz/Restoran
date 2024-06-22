@@ -1,0 +1,37 @@
+﻿@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    int count = 1;
+}
+<h2>Mutlu Müşteriler</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Yorum</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Meslek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Comment</td>
+                <td>@item.Name</td>
+                <td>@item.Title</td>
+                <td><a asp-action="Update" asp-controller="Testimonial" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a asp-action="Delete" asp-controller="Testimonial" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-danger">Sil</a></td>
+            </tr>
+            count++;
+        }
+        
+        
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Testimonial" asp-area="Admin" class="btn btn-info">Ekle</a>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@await Component.InvokeAsync("_HomeBanner")
+@await Component.InvokeAsync("_HomeService")
+@await Component.InvokeAsync("_HomeAbout")
+@await Component.InvokeAsync("_HomeMenu")
+@await Component.InvokeAsync("_HomeReservation")
+@await Component.InvokeAsync("_HomeTeamMember")
+@await Component.InvokeAsync("_HomeTestimonial")
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.options.positionClass = 'toast-bottom-right';
+            var successMessage = '@TempData["SuccessMessage"]';
+            var errorMessage = '@TempData["ErrorMessage"]';
+
+            if (successMessage) {
+                toastr.success(successMessage);
+            }
+
+            if (errorMessage) {
+                toastr.error(errorMessage);
+            }
+        });
+    </script>
+}
+
+

@@ -1,0 +1,27 @@
+﻿@model CreateAboutDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" asp-for="Subtitle" class="form-control" />
+    <br />
+    <label>Açıklama</label>
+    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    <br />
+    <label>Tecrübe Yılı</label>
+    <input type="text" asp-for="YearsOfExperience" class="form-control" />
+    <br />
+    <label>Şef Sayısı</label>
+    <input type="text" asp-for="PopulerMasterChefs" class="form-control" />
+    <br />
+    <button class="btn btn-success">Ekle</button>
+
+
+</form>
+
